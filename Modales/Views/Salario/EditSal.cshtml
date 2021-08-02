@@ -1,0 +1,129 @@
+﻿@model Modales.Models.Tbl_Salario
+@{
+    ViewBag.Title = "Edit "+ @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre)+" "+ @Html.DisplayFor(model => model.Tbl_Trabajador.Apellido) + "'s Salary";
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+
+<section>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="modal-shadow text-center">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>@ViewBag.Title</h4>
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idSalario)
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="text-center">
+                @Html.TextBoxFor(m => m.SalarioBruto,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.SalarioBruto).ToHtmlString()),
+                    style = "margin: 0 auto;"
+                })
+                @Html.ValidationMessageFor(m => m.SalarioBruto, "", new { @class = "text-info" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                @Html.TextBoxFor(m => m.Prestamos,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Prestamos).ToHtmlString()),
+                    style = "margin: 0 auto;"
+                })
+                @Html.ValidationMessageFor(m => m.Prestamos, "", new { @class = "text-info" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                @Html.TextBoxFor(m => m.Adelantos,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Adelantos).ToHtmlString()),
+                    style = "margin: 0 auto;"
+                })
+                @Html.ValidationMessageFor(m => m.Adelantos, "", new { @class = "text-info" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                @Html.TextBoxFor(m => m.Otros,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Otros).ToHtmlString()),
+                    style = "margin: 0 auto;"
+                })
+                @Html.ValidationMessageFor(m => m.Otros, "", new { @class = "text-info" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                <span style="margin: 0 auto;">First date</span>
+                @Html.TextBoxFor(m => m.PrimeraFecha,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.PrimeraFecha).ToHtmlString()),
+                    style = "margin: 0 auto;",
+                    type = "date",
+                    text = "Date of birth"
+                })
+                @Html.ValidationMessageFor(m => m.PrimeraFecha, "", new { @class = "text-info" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="text-center">
+                <span style="margin: 0 auto;">Last date</span>
+                @Html.TextBoxFor(m => m.UltimaFecha,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.UltimaFecha).ToHtmlString()),
+                    style = "margin: 0 auto;",
+                    type = "date",
+                    text = "Date of birth"
+                })
+                @Html.ValidationMessageFor(m => m.UltimaFecha, "", new { @class = "text-info" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                <span style="margin: 0 auto;">Salary date</span>
+                @Html.TextBoxFor(m => m.FechaSalario,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.FechaSalario).ToHtmlString()),
+                    style = "margin: 0 auto;",
+                    type = "date",
+                    text = "Date of birth"
+                })
+                @Html.ValidationMessageFor(m => m.FechaSalario, "", new { @class = "text-info" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+        </div>
+        }
+</section>
+
+
+
+
+

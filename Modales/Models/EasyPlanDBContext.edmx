@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="easyplanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Mantenimiento">
+          <Key>
+            <PropertyRef Name="idMantenimiento" />
+          </Key>
+          <Property Name="idMantenimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEquipo" Type="int" Nullable="false" />
+          <Property Name="tipoMantenimiento" Type="nvarchar(max)" />
+          <Property Name="descripcion" Type="nvarchar(max)" />
+          <Property Name="supervisor" Type="nvarchar(max)" />
+          <Property Name="fecha" Type="nvarchar(max)" />
+          <Property Name="informe" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Reportes">
+          <Key>
+            <PropertyRef Name="idReporte" />
+          </Key>
+          <Property Name="idReporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCliente" Type="nvarchar(max)" />
+          <Property Name="idEquipo" Type="int" Nullable="false" />
+          <Property Name="idPruebaElectrica" Type="int" Nullable="false" />
+          <Property Name="idPruebasFisicas" Type="int" Nullable="false" />
+          <Property Name="idPruebaQuimica" Type="int" Nullable="false" />
+          <Property Name="idPruebaCroma" Type="int" Nullable="false" />
+          <Property Name="fechaReporte" Type="nvarchar(max)" />
+          <Property Name="escritor" Type="nvarchar(max)" />
+          <Property Name="muestreador" Type="nvarchar(max)" />
+          <Property Name="obsevacion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Adelantos">
+          <Key>
+            <PropertyRef Name="idAdelento" />
+          </Key>
+          <Property Name="idAdelento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="20" />
+          <Property Name="Monto" Type="int" Nullable="false" />
+          <Property Name="FechaAdelanto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmisorAdelento" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Clientes">
+          <Key>
+            <PropertyRef Name="NombreCliente" />
+          </Key>
+          <Property Name="NombreCliente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Contacto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Proyecto" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Historial">
+          <Key>
+            <PropertyRef Name="idRegistro" />
+          </Key>
+          <Property Name="idRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registro" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Usuario" Type="nchar" MaxLength="30" />
+          <Property Name="Fecha" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Tbl_Jornada">
+          <Key>
+            <PropertyRef Name="idJornada" />
+          </Key>
+          <Property Name="idJornada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="20" />
+          <Property Name="idSalario" Type="int" />
+          <Property Name="TipoJornada" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HoraInicio" Type="varchar" MaxLength="20" />
+          <Property Name="HoraFin" Type="varchar" MaxLength="20" />
+          <Property Name="PrecioHoraRegular" Type="int" />
+          <Property Name="PrecioHoraExtra" Type="int" />
+          <Property Name="CantidadHorasRegulares" Type="int" />
+          <Property Name="CantidadHorasExtras" Type="int" />
+          <Property Name="ValorTotalHoraExtra" Type="int" />
+          <Property Name="ValorTotalHorasRegulares" Type="int" />
+          <Property Name="PrecioContrato" Type="int" />
+          <Property Name="UnidadMedida" Type="varchar" MaxLength="20" />
+          <Property Name="PrecioUnidadMedida" Type="int" />
+          <Property Name="TotalUnidadDeMedida" Type="int" />
+          <Property Name="LaborExtra" Type="varchar" MaxLength="20" />
+          <Property Name="PrecioLaborExtra" Type="int" />
+          <Property Name="FechaJornada" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="200" />
+          <Property Name="ValorJornada" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="Tbl_Prestamos">
+          <Key>
+            <PropertyRef Name="idPrestamo" />
+          </Key>
+          <Property Name="idPrestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="20" />
+          <Property Name="Monto" Type="int" Nullable="false" />
+          <Property Name="FechaPrestamo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmisorPrestamo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Salario">
+          <Key>
+            <PropertyRef Name="idSalario" />
+          </Key>
+          <Property Name="idSalario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="20" />
+          <Property Name="SalarioBruto" Type="int" Nullable="false" />
+          <Property Name="Seguro" Type="int" Nullable="false" />
+          <Property Name="Prestamos" Type="int" />
+          <Property Name="Adelantos" Type="int" />
+          <Property Name="Otros" Type="int" />
+          <Property Name="SalarioNeto" Type="int" Nullable="false" />
+          <Property Name="PrimeraFecha" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UltimaFecha" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TotalDeducciones" Type="int" Nullable="false" />
+          <Property Name="FechaSalario" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Trabajador">
+          <Key>
+            <PropertyRef Name="CedulaTra" />
+          </Key>
+          <Property Name="CedulaTra" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Puesto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Edad" Type="int" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nacionalidad" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NumEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="FechaEmpleo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Empleador" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaDespido" Type="varchar" MaxLength="20" />
+          <Property Name="InicioIncapacidad" Type="varchar" MaxLength="20" />
+          <Property Name="FinalIncapacidad" Type="varchar" MaxLength="20" />
+          <Property Name="Padecimientos" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_Adelantos_Trabajador">
+          <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1" />
+          <End Role="Tbl_Adelantos" Type="Self.Tbl_Adelantos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Trabajador">
+              <PropertyRef Name="CedulaTra" />
+            </Principal>
+            <Dependent Role="Tbl_Adelantos">
+              <PropertyRef Name="CedulaTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jornada_Salario">
+          <End Role="Tbl_Salario" Type="Self.Tbl_Salario" Multiplicity="0..1" />
+          <End Role="Tbl_Jornada" Type="Self.Tbl_Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Salario">
+              <PropertyRef Name="idSalario" />
+            </Principal>
+            <Dependent Role="Tbl_Jornada">
+              <PropertyRef Name="idSalario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jornada_Trabajador">
+          <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1" />
+          <End Role="Tbl_Jornada" Type="Self.Tbl_Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Trabajador">
+              <PropertyRef Name="CedulaTra" />
+            </Principal>
+            <Dependent Role="Tbl_Jornada">
+              <PropertyRef Name="CedulaTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prestamos_Trabajador">
+          <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1" />
+          <End Role="Tbl_Prestamos" Type="Self.Tbl_Prestamos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Trabajador">
+              <PropertyRef Name="CedulaTra" />
+            </Principal>
+            <Dependent Role="Tbl_Prestamos">
+              <PropertyRef Name="CedulaTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salario_Trabajador">
+          <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1" />
+          <End Role="Tbl_Salario" Type="Self.Tbl_Salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Trabajador">
+              <PropertyRef Name="CedulaTra" />
+            </Principal>
+            <Dependent Role="Tbl_Salario">
+              <PropertyRef Name="CedulaTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="easyplanModelStoreContainer">
+          <EntitySet Name="Mantenimiento" EntityType="Self.Mantenimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reportes" EntityType="Self.Reportes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Adelantos" EntityType="Self.Tbl_Adelantos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Clientes" EntityType="Self.Tbl_Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Historial" EntityType="Self.Tbl_Historial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Jornada" EntityType="Self.Tbl_Jornada" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Prestamos" EntityType="Self.Tbl_Prestamos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Salario" EntityType="Self.Tbl_Salario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Trabajador" EntityType="Self.Tbl_Trabajador" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Adelantos_Trabajador" Association="Self.FK_Adelantos_Trabajador">
+            <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+            <End Role="Tbl_Adelantos" EntitySet="Tbl_Adelantos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jornada_Salario" Association="Self.FK_Jornada_Salario">
+            <End Role="Tbl_Salario" EntitySet="Tbl_Salario" />
+            <End Role="Tbl_Jornada" EntitySet="Tbl_Jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jornada_Trabajador" Association="Self.FK_Jornada_Trabajador">
+            <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+            <End Role="Tbl_Jornada" EntitySet="Tbl_Jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prestamos_Trabajador" Association="Self.FK_Prestamos_Trabajador">
+            <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+            <End Role="Tbl_Prestamos" EntitySet="Tbl_Prestamos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salario_Trabajador" Association="Self.FK_Salario_Trabajador">
+            <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+            <End Role="Tbl_Salario" EntitySet="Tbl_Salario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="easyplanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Adelantos">
+          <Key>
+            <PropertyRef Name="idAdelento" />
+          </Key>
+          <Property Name="idAdelento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Int32" Nullable="false" />
+          <Property Name="FechaAdelanto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmisorAdelento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tbl_Trabajador" Relationship="Self.FK_Adelantos_Trabajador" FromRole="Tbl_Adelantos" ToRole="Tbl_Trabajador" />
+        </EntityType>
+        <EntityType Name="Tbl_Clientes">
+          <Key>
+            <PropertyRef Name="NombreCliente" />
+          </Key>
+          <Property Name="NombreCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Historial">
+          <Key>
+            <PropertyRef Name="idRegistro" />
+          </Key>
+          <Property Name="idRegistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registro" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Fecha" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_Prestamos">
+          <Key>
+            <PropertyRef Name="idPrestamo" />
+          </Key>
+          <Property Name="idPrestamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Int32" Nullable="false" />
+          <Property Name="FechaPrestamo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmisorPrestamo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tbl_Trabajador" Relationship="Self.FK_Prestamos_Trabajador" FromRole="Tbl_Prestamos" ToRole="Tbl_Trabajador" />
+        </EntityType>
+        <EntityType Name="Tbl_Salario">
+          <Key>
+            <PropertyRef Name="idSalario" />
+          </Key>
+          <Property Name="idSalario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SalarioBruto" Type="Int32" Nullable="false" />
+          <Property Name="Seguro" Type="Int32" Nullable="false" />
+          <Property Name="Prestamos" Type="Int32" />
+          <Property Name="Adelantos" Type="Int32" />
+          <Property Name="Otros" Type="Int32" />
+          <Property Name="SalarioNeto" Type="Int32" Nullable="false" />
+          <Property Name="PrimeraFecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UltimaFecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalDeducciones" Type="Int32" Nullable="false" />
+          <Property Name="FechaSalario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tbl_Trabajador" Relationship="Self.FK_Salario_Trabajador" FromRole="Tbl_Salario" ToRole="Tbl_Trabajador" />
+          <NavigationProperty Name="Tbl_Jornada" Relationship="easyplanModel.FK_Jornada_Salario" FromRole="Tbl_Salario" ToRole="Tbl_Jornada" />
+        </EntityType>
+        <EntityType Name="Tbl_Trabajador">
+          <Key>
+            <PropertyRef Name="CedulaTra" />
+          </Key>
+          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Puesto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ciudad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaEmpleo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Empleador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaDespido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InicioIncapacidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FinalIncapacidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Padecimientos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Adelantos" Relationship="Self.FK_Adelantos_Trabajador" FromRole="Tbl_Trabajador" ToRole="Tbl_Adelantos" />
+          <NavigationProperty Name="Tbl_Prestamos" Relationship="Self.FK_Prestamos_Trabajador" FromRole="Tbl_Trabajador" ToRole="Tbl_Prestamos" />
+          <NavigationProperty Name="Tbl_Salario" Relationship="Self.FK_Salario_Trabajador" FromRole="Tbl_Trabajador" ToRole="Tbl_Salario" />
+          <NavigationProperty Name="Tbl_Jornada" Relationship="easyplanModel.FK_Jornada_Trabajador" FromRole="Tbl_Trabajador" ToRole="Tbl_Jornada" />
+        </EntityType>
+        <Association Name="FK_Adelantos_Trabajador">
+          <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1" />
+          <End Role="Tbl_Adelantos" Type="Self.Tbl_Adelantos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Trabajador">
+              <PropertyRef Name="CedulaTra" />
+            </Principal>
+            <Dependent Role="Tbl_Adelantos">
+              <PropertyRef Name="CedulaTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prestamos_Trabajador">
+          <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1" />
+          <End Role="Tbl_Prestamos" Type="Self.Tbl_Prestamos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Trabajador">
+              <PropertyRef Name="CedulaTra" />
+            </Principal>
+            <Dependent Role="Tbl_Prestamos">
+              <PropertyRef Name="CedulaTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Salario_Trabajador">
+          <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1" />
+          <End Role="Tbl_Salario" Type="Self.Tbl_Salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Trabajador">
+              <PropertyRef Name="CedulaTra" />
+            </Principal>
+            <Dependent Role="Tbl_Salario">
+              <PropertyRef Name="CedulaTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EasyPlanDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Adelantos" EntityType="Self.Tbl_Adelantos" />
+          <EntitySet Name="Tbl_Clientes" EntityType="Self.Tbl_Clientes" />
+          <EntitySet Name="Tbl_Historial" EntityType="Self.Tbl_Historial" />
+          <EntitySet Name="Tbl_Prestamos" EntityType="Self.Tbl_Prestamos" />
+          <EntitySet Name="Tbl_Salario" EntityType="Self.Tbl_Salario" />
+          <EntitySet Name="Tbl_Trabajador" EntityType="Self.Tbl_Trabajador" />
+          <AssociationSet Name="FK_Adelantos_Trabajador" Association="Self.FK_Adelantos_Trabajador">
+            <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+            <End Role="Tbl_Adelantos" EntitySet="Tbl_Adelantos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prestamos_Trabajador" Association="Self.FK_Prestamos_Trabajador">
+            <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+            <End Role="Tbl_Prestamos" EntitySet="Tbl_Prestamos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Salario_Trabajador" Association="Self.FK_Salario_Trabajador">
+            <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+            <End Role="Tbl_Salario" EntitySet="Tbl_Salario" />
+          </AssociationSet>
+          <EntitySet Name="Mantenimiento" EntityType="easyplanModel.Mantenimiento" />
+          <EntitySet Name="Reportes" EntityType="easyplanModel.Reportes" />
+          <EntitySet Name="Tbl_Jornada" EntityType="easyplanModel.Tbl_Jornada" />
+          <AssociationSet Name="FK_Jornada_Salario" Association="easyplanModel.FK_Jornada_Salario">
+            <End Role="Tbl_Salario" EntitySet="Tbl_Salario" />
+            <End Role="Tbl_Jornada" EntitySet="Tbl_Jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jornada_Trabajador" Association="easyplanModel.FK_Jornada_Trabajador">
+            <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+            <End Role="Tbl_Jornada" EntitySet="Tbl_Jornada" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Mantenimiento">
+          <Key>
+            <PropertyRef Name="idMantenimiento" />
+          </Key>
+          <Property Name="idMantenimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEquipo" Type="Int32" Nullable="false" />
+          <Property Name="tipoMantenimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="supervisor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fecha" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="informe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Reportes">
+          <Key>
+            <PropertyRef Name="idReporte" />
+          </Key>
+          <Property Name="idReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idEquipo" Type="Int32" Nullable="false" />
+          <Property Name="idPruebaElectrica" Type="Int32" Nullable="false" />
+          <Property Name="idPruebasFisicas" Type="Int32" Nullable="false" />
+          <Property Name="idPruebaQuimica" Type="Int32" Nullable="false" />
+          <Property Name="idPruebaCroma" Type="Int32" Nullable="false" />
+          <Property Name="fechaReporte" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="escritor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="muestreador" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="obsevacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_Jornada">
+          <Key>
+            <PropertyRef Name="idJornada" />
+          </Key>
+          <Property Name="idJornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idSalario" Type="Int32" />
+          <Property Name="TipoJornada" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HoraInicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HoraFin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PrecioHoraRegular" Type="Int32" />
+          <Property Name="PrecioHoraExtra" Type="Int32" />
+          <Property Name="CantidadHorasRegulares" Type="Int32" />
+          <Property Name="CantidadHorasExtras" Type="Int32" />
+          <Property Name="ValorTotalHoraExtra" Type="Int32" />
+          <Property Name="ValorTotalHorasRegulares" Type="Int32" />
+          <Property Name="PrecioContrato" Type="Int32" />
+          <Property Name="UnidadMedida" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PrecioUnidadMedida" Type="Int32" />
+          <Property Name="TotalUnidadDeMedida" Type="Int32" />
+          <Property Name="LaborExtra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PrecioLaborExtra" Type="Int32" />
+          <Property Name="FechaJornada" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ValorJornada" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="Tbl_Salario" Relationship="easyplanModel.FK_Jornada_Salario" FromRole="Tbl_Jornada" ToRole="Tbl_Salario" />
+          <NavigationProperty Name="Tbl_Trabajador" Relationship="easyplanModel.FK_Jornada_Trabajador" FromRole="Tbl_Jornada" ToRole="Tbl_Trabajador" />
+        </EntityType>
+        <Association Name="FK_Jornada_Salario">
+          <End Type="easyplanModel.Tbl_Salario" Role="Tbl_Salario" Multiplicity="0..1" />
+          <End Type="easyplanModel.Tbl_Jornada" Role="Tbl_Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Salario">
+              <PropertyRef Name="idSalario" />
+            </Principal>
+            <Dependent Role="Tbl_Jornada">
+              <PropertyRef Name="idSalario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jornada_Trabajador">
+          <End Type="easyplanModel.Tbl_Trabajador" Role="Tbl_Trabajador" Multiplicity="0..1" />
+          <End Type="easyplanModel.Tbl_Jornada" Role="Tbl_Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Trabajador">
+              <PropertyRef Name="CedulaTra" />
+            </Principal>
+            <Dependent Role="Tbl_Jornada">
+              <PropertyRef Name="CedulaTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="easyplanModelStoreContainer" CdmEntityContainer="EasyPlanDB">
+          <EntitySetMapping Name="Tbl_Adelantos">
+            <EntityTypeMapping TypeName="easyplanModel.Tbl_Adelantos">
+              <MappingFragment StoreEntitySet="Tbl_Adelantos">
+                <ScalarProperty Name="idAdelento" ColumnName="idAdelento" />
+                <ScalarProperty Name="CedulaTra" ColumnName="CedulaTra" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaAdelanto" ColumnName="FechaAdelanto" />
+                <ScalarProperty Name="EmisorAdelento" ColumnName="EmisorAdelento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Clientes">
+            <EntityTypeMapping TypeName="easyplanModel.Tbl_Clientes">
+              <MappingFragment StoreEntitySet="Tbl_Clientes">
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Historial">
+            <EntityTypeMapping TypeName="easyplanModel.Tbl_Historial">
+              <MappingFragment StoreEntitySet="Tbl_Historial">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="idRegistro" ColumnName="idRegistro" />
+                <ScalarProperty Name="Registro" ColumnName="Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Prestamos">
+            <EntityTypeMapping TypeName="easyplanModel.Tbl_Prestamos">
+              <MappingFragment StoreEntitySet="Tbl_Prestamos">
+                <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
+                <ScalarProperty Name="CedulaTra" ColumnName="CedulaTra" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaPrestamo" ColumnName="FechaPrestamo" />
+                <ScalarProperty Name="EmisorPrestamo" ColumnName="EmisorPrestamo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Salario">
+            <EntityTypeMapping TypeName="easyplanModel.Tbl_Salario">
+              <MappingFragment StoreEntitySet="Tbl_Salario">
+                <ScalarProperty Name="idSalario" ColumnName="idSalario" />
+                <ScalarProperty Name="CedulaTra" ColumnName="CedulaTra" />
+                <ScalarProperty Name="SalarioBruto" ColumnName="SalarioBruto" />
+                <ScalarProperty Name="Seguro" ColumnName="Seguro" />
+                <ScalarProperty Name="Prestamos" ColumnName="Prestamos" />
+                <ScalarProperty Name="Adelantos" ColumnName="Adelantos" />
+                <ScalarProperty Name="Otros" ColumnName="Otros" />
+                <ScalarProperty Name="SalarioNeto" ColumnName="SalarioNeto" />
+                <ScalarProperty Name="PrimeraFecha" ColumnName="PrimeraFecha" />
+                <ScalarProperty Name="UltimaFecha" ColumnName="UltimaFecha" />
+                <ScalarProperty Name="TotalDeducciones" ColumnName="TotalDeducciones" />
+                <ScalarProperty Name="FechaSalario" ColumnName="FechaSalario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Trabajador">
+            <EntityTypeMapping TypeName="easyplanModel.Tbl_Trabajador">
+              <MappingFragment StoreEntitySet="Tbl_Trabajador">
+                <ScalarProperty Name="CedulaTra" ColumnName="CedulaTra" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="NumEmpleado" ColumnName="NumEmpleado" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="FechaEmpleo" ColumnName="FechaEmpleo" />
+                <ScalarProperty Name="Empleador" ColumnName="Empleador" />
+                <ScalarProperty Name="FechaDespido" ColumnName="FechaDespido" />
+                <ScalarProperty Name="InicioIncapacidad" ColumnName="InicioIncapacidad" />
+                <ScalarProperty Name="FinalIncapacidad" ColumnName="FinalIncapacidad" />
+                <ScalarProperty Name="Padecimientos" ColumnName="Padecimientos" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mantenimiento">
+            <EntityTypeMapping TypeName="easyplanModel.Mantenimiento">
+              <MappingFragment StoreEntitySet="Mantenimiento">
+                <ScalarProperty Name="informe" ColumnName="informe" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="supervisor" ColumnName="supervisor" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="tipoMantenimiento" ColumnName="tipoMantenimiento" />
+                <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+                <ScalarProperty Name="idMantenimiento" ColumnName="idMantenimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reportes">
+            <EntityTypeMapping TypeName="easyplanModel.Reportes">
+              <MappingFragment StoreEntitySet="Reportes">
+                <ScalarProperty Name="obsevacion" ColumnName="obsevacion" />
+                <ScalarProperty Name="muestreador" ColumnName="muestreador" />
+                <ScalarProperty Name="escritor" ColumnName="escritor" />
+                <ScalarProperty Name="fechaReporte" ColumnName="fechaReporte" />
+                <ScalarProperty Name="idPruebaCroma" ColumnName="idPruebaCroma" />
+                <ScalarProperty Name="idPruebaQuimica" ColumnName="idPruebaQuimica" />
+                <ScalarProperty Name="idPruebasFisicas" ColumnName="idPruebasFisicas" />
+                <ScalarProperty Name="idPruebaElectrica" ColumnName="idPruebaElectrica" />
+                <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="idReporte" ColumnName="idReporte" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Jornada">
+            <EntityTypeMapping TypeName="easyplanModel.Tbl_Jornada">
+              <MappingFragment StoreEntitySet="Tbl_Jornada">
+                <ScalarProperty Name="ValorJornada" ColumnName="ValorJornada" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="FechaJornada" ColumnName="FechaJornada" />
+                <ScalarProperty Name="PrecioLaborExtra" ColumnName="PrecioLaborExtra" />
+                <ScalarProperty Name="LaborExtra" ColumnName="LaborExtra" />
+                <ScalarProperty Name="TotalUnidadDeMedida" ColumnName="TotalUnidadDeMedida" />
+                <ScalarProperty Name="PrecioUnidadMedida" ColumnName="PrecioUnidadMedida" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="PrecioContrato" ColumnName="PrecioContrato" />
+                <ScalarProperty Name="ValorTotalHorasRegulares" ColumnName="ValorTotalHorasRegulares" />
+                <ScalarProperty Name="ValorTotalHoraExtra" ColumnName="ValorTotalHoraExtra" />
+                <ScalarProperty Name="CantidadHorasExtras" ColumnName="CantidadHorasExtras" />
+                <ScalarProperty Name="CantidadHorasRegulares" ColumnName="CantidadHorasRegulares" />
+                <ScalarProperty Name="PrecioHoraExtra" ColumnName="PrecioHoraExtra" />
+                <ScalarProperty Name="PrecioHoraRegular" ColumnName="PrecioHoraRegular" />
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="TipoJornada" ColumnName="TipoJornada" />
+                <ScalarProperty Name="idSalario" ColumnName="idSalario" />
+                <ScalarProperty Name="CedulaTra" ColumnName="CedulaTra" />
+                <ScalarProperty Name="idJornada" ColumnName="idJornada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

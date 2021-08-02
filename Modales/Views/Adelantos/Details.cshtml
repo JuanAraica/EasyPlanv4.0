@@ -1,0 +1,50 @@
+﻿@model Modales.Models.Tbl_Adelantos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_Adelantos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAdelanto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAdelanto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmisorAdelento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmisorAdelento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Trabajador.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idAdelento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

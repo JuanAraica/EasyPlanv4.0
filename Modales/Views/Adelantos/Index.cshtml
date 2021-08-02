@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Modales.Models.Tbl_Adelantos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaAdelanto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmisorAdelento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tbl_Trabajador.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaAdelanto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmisorAdelento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idAdelento }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idAdelento }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idAdelento })
+        </td>
+    </tr>
+}
+
+</table>

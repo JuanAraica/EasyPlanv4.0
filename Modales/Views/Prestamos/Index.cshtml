@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Modales.Models.Tbl_Prestamos>
+@{
+    ViewBag.Title = "Loans";
+}
+
+<hr />
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { data_modal = "" })
+</p>
+<table class="table table-dark" style="text-align:center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tbl_Trabajador.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaPrestamo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmisorPrestamo)
+        </th>
+        <th colspan="3"><span>Actions</span></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPrestamo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmisorPrestamo)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idPrestamo }, new { data_modal = "" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idPrestamo }, new { data_modal = "" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idPrestamo }, new { data_modal = "" })
+            </td>
+        </tr>
+    }
+
+</table>

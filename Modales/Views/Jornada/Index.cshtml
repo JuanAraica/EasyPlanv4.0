@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Modales.Models.Tbl_Jornada>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<p>
+    <span class="btn btn-info col-sm-4">
+        @Html.ActionLink("New Carga", "CreateJornadaCarga", null, new { data_modal = "" })
+    </span>
+    <span class="btn btn-warning col-sm-4">
+        @Html.ActionLink("New Contrato", "CreateJornadaContrato", null, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info col-sm-4">
+        @Html.ActionLink("New Corta", "CreateJornadaCorta", null, new { data_modal = "" })
+    </span>
+</p>
+<p>
+    <span class="btn btn-warning col-sm-3">
+        @Html.ActionLink("New Siembra", "CreateJornadaSiembra", null, new { data_modal = "" })
+    </span>
+     <span class="btn btn-info col-sm-3">
+        @Html.ActionLink("New Retapa", "CreateJornadaRetapa", null, new { data_modal = "" })
+    </span>
+    <span class="btn btn-warning col-sm-3">
+        @Html.ActionLink("New Descarga", "CreateJornadaDescarga", null, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info col-sm-3">
+        @Html.ActionLink("New Hora", "CreateJornadaHora", null, new { data_modal = "" })
+    </span>
+</p>
+<table class="table table-striped" style="text-align:center">
+ 
+    <tr>
+        <th>
+            Worker
+        </th>
+        <th>
+            Type Jornada
+        </th>
+        <th>
+            Measurement unit
+        </th>
+        <th>
+            Measure price
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Day's Value
+        </th>
+        <th>
+            Observation
+        </th>
+        <th colspan="3"><span>Actions</span></th>
+    </tr>
+ 
+ 
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Nombre) @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Apellido)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TipoJornada)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UnidadMedida)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PrecioUnidadMedida)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaJornada)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ValorJornada)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Observacion)
+    </td>
+    @if (item.TipoJornada == "Corta")
+    {
+<td>
+    <span class="btn btn-success">
+        @Html.ActionLink("Edit Corta", "EditJornadaCorta", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info">
+        @Html.ActionLink("Details", "Details", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-danger">
+        @Html.ActionLink("Delete", "Delete", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+</td>}
+    @if (item.TipoJornada == "Siembra")
+    {
+<td>
+    <span class="btn btn-success">
+        @Html.ActionLink("Edit Siembra", "EditJornadaSiembra", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info">
+        @Html.ActionLink("Details", "Details", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-danger">
+        @Html.ActionLink("Delete", "Delete", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+</td>}
+    @if (item.TipoJornada == "Carga")
+    {
+<td>
+    <span class="btn btn-success">
+        @Html.ActionLink("Edit Carga", "EditJornadaCarga", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info">
+        @Html.ActionLink("Details", "Details", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-danger">
+        @Html.ActionLink("Delete", "Delete", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+</td>
+}
+    @if (item.TipoJornada == "Descarga")
+    {
+<td>
+    <span class="btn btn-success">
+        @Html.ActionLink("Edit", "EditJornadaDescarga", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info">
+        @Html.ActionLink("Details", "Details", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-danger">
+        @Html.ActionLink("Delete", "Delete", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+</td>}
+    @if (item.TipoJornada == "Retapa")
+    {
+<td>
+    <span class="btn btn-success">
+        @Html.ActionLink("Edit", "EditJornadaRetapa", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info">
+        @Html.ActionLink("Details", "Details", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-danger">
+        @Html.ActionLink("Delete", "Delete", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+</td>}
+    @if (item.TipoJornada == "Por Hora")
+    {
+<td>
+    <span class="btn btn-success">
+        @Html.ActionLink("Edit", "EditJornadaHora", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info">
+        @Html.ActionLink("Details", "Details", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-danger">
+        @Html.ActionLink("Delete", "Delete", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+</td>
+}
+    @if (item.TipoJornada == "Contrato/Tarea")
+    {
+<td>
+    <span class="btn btn-success">
+        @Html.ActionLink("Edit", "EditJornadaContrato", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-info">
+        @Html.ActionLink("Details", "Details", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+    <span class="btn btn-danger">
+        @Html.ActionLink("Delete", "Delete", new { id = item.idJornada }, new { data_modal = "" })
+    </span>
+</td>}
+</tr>}
+ 
+</table>

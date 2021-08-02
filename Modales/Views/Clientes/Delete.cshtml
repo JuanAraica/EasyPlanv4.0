@@ -1,0 +1,33 @@
+﻿@model Modales.Models.Tbl_Clientes
+
+@{
+    ViewBag.Title = "Delete Client";
+}
+@Scripts.Render("~/bundles/jqueryval")
+<section>
+    <div class="modal-shadow text-center">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>@ViewBag.Title</h4>
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="text-center">
+                    Are you sure you want to delete @Html.DisplayFor(m => m.NombreCliente)'s register?
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div>
+                        <input type="submit" value="Delete" class="btn btn-default" />
+                        <input type="button" value="Cancel" class="btn btn-default" data-dismiss="modal" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

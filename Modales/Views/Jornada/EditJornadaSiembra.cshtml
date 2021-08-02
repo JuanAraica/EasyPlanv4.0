@@ -1,0 +1,77 @@
+﻿@model Modales.Models.Tbl_Jornada
+
+@{ ViewBag.Title = "Add Jornada"; }
+@Scripts.Render("~/bundles/jqueryval")
+
+<section>
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+                <div class="modal-shadow text-center">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4>@ViewBag.Title</h4>
+                        </div>
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <div class="text-center">
+                            @Html.TextBoxFor(m => m.PrecioUnidadMedida,
+                                                                      new
+                                                                      {
+                                                                          @class = "form-control",
+                                                                          placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.PrecioUnidadMedida).ToHtmlString()),
+                                                                          style = "margin: 0 auto;"
+                                                                      })
+                            @Html.ValidationMessageFor(m => m.PrecioUnidadMedida, "", new { @class = "text-info" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="text-center">
+                            @Html.TextBoxFor(m => m.TotalUnidadDeMedida,
+                                                                      new
+                                                                      {
+                                                                          @class = "form-control",
+                                                                          placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.TotalUnidadDeMedida).ToHtmlString()),
+                                                                          style = "margin: 0 auto;"
+                                                                      })
+                            @Html.ValidationMessageFor(m => m.TotalUnidadDeMedida, "", new { @class = "text-info" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="text-center">
+                            <span style="margin: 0 auto;">Date</span>
+                            @Html.TextBoxFor(m => m.FechaJornada,
+                                                          new
+                                                          {
+                                                              @class = "form-control",
+                                                              placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.FechaJornada).ToHtmlString()),
+                                                              style = "margin: 0 auto;",
+                                                              type = "date",
+                                                              text = "Date"
+                                                          })
+                            @Html.ValidationMessageFor(m => m.FechaJornada, "", new { @class = "text-info" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="text-center">
+                            @Html.TextBoxFor(m => m.Observacion,
+                                 new
+                                 {
+                                     @class = "form-control",
+                                     placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Observacion).ToHtmlString()),
+                                     style = "margin: 0 auto;"
+                                 })
+                            @Html.ValidationMessageFor(m => m.Observacion, "", new { @class = "text-info" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+                </div>}
+</section>

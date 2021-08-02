@@ -1,0 +1,59 @@
+﻿@model Modales.Models.Tbl_Trabajador
+
+
+@{
+    ViewBag.Title = "Welcome!!";
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+
+
+<section>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="modal-shadow text-center">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="text-center">
+                    @Html.TextBoxFor(m => m.Correo,
+                    new
+                    {
+                        @class = "form-control",
+                        placeholder = "E-mail: Example123@mail.example",
+                        style = "margin: 0 auto;"
+                    })
+                    @Html.ValidationMessageFor(m => m.Correo, "", new { @class = "text-info" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="text-center">
+                    @Html.TextBoxFor(m => m.CedulaTra,
+                 new
+                 {
+                     @class = "form-control",
+                     placeholder = "Password: * * * * * * * *",
+                     style = "margin: 0 auto;",
+                     type = "Password"
+                 })
+                    @Html.ValidationMessageFor(m => m.CedulaTra, "", new { @class = "text-info" })
+                </div>
+            </div>
+            <div class="danger">
+                <strong style="background-color:white">@ViewBag.Error</strong>
+            </div>
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Login" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        </div>
+    }
+</section>

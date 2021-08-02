@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Modales.Models.Tbl_Historial>
+
+@{
+    ViewBag.Title = "History";
+    ViewBag.user = (string)Session["trabajador"];
+}
+<br />
+<h2>@ViewBag.user</h2>
+
+
+<table class="table table-dark" style="text-align:center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Registro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Registro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>

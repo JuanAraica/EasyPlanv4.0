@@ -1,0 +1,270 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+th {
+    text-align:center;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.wrapperheader {
+    background: url('http://www.autodatz.com/wp-content/uploads/2017/05/Old-Car-Wallpapers-Hd-36-with-Old-Car-Wallpapers-Hd.jpg');
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+
+    .wrapperheader .overlay {
+        width: 100%;
+        height: 100%;
+        padding: 50px;
+        color: #FFF;
+        text-shadow: 1px 1px 1px #333;
+        background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+    }
+
+.wrapperheaderh1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+.wrapperheaderh3, .wrapperheaderp {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 30px;
+}
+
+.wrapperheaderbutton {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #333;
+    background: #fff;
+    margin-bottom: 50px;
+    box-shadow: 0 3px 20px 0 #0000003b;
+}
+
+    .wrapperheaderbutton:hover {
+        cursor: pointer;
+    }
+
+
+
+/*    Cards*/
+.homecards-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4rem;
+    padding: 4rem;
+    margin: 0 auto;
+    width: max-content;
+}
+
+.homecards {
+    font-family: 'Heebo';
+    --bg-filter-opacity: 0.5;
+    background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
+    height: 20em;
+    width: 15em;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 1em;
+    padding: 1em;
+    /*margin: 2em;*/
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 5em -1em black;
+    transition: all, var(--transition-time);
+    position: relative;
+    overflow: hidden;
+    border: 10px solid #ccc;
+    text-decoration: none;
+}
+
+    .homecards:hover {
+        transform: rotate(0);
+    }
+
+    .homecards h1 {
+        margin: 0;
+        font-size: 1.5em;
+        line-height: 1.2em;
+    }
+
+    .homecards p {
+        font-size: 0.75em;
+        font-family: 'Open Sans';
+        margin-top: 0.5em;
+        line-height: 2em;
+    }
+
+    .homecards .tags {
+        display: flex;
+    }
+
+        .homecards .tags .tag {
+            font-size: 0.75em;
+            background: rgba(255,255,255,0.5);
+            border-radius: 0.3rem;
+            padding: 0 0.5em;
+            margin-right: 0.5em;
+            line-height: 1.5em;
+            transition: all, var(--transition-time);
+        }
+
+    .homecards:hover .tags .tag {
+        background: var(--color);
+        color: white;
+    }
+
+    .homecards .date {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 0.75em;
+        padding: 1em;
+        line-height: 1em;
+        opacity: .8;
+    }
+
+    .homecards:before, .card:after {
+        content: '';
+        transform: scale(0);
+        transform-origin: top left;
+        border-radius: 50%;
+        position: absolute;
+        left: -50%;
+        top: -50%;
+        z-index: -5;
+        transition: all, var(--transition-time);
+        transition-timing-function: ease-in-out;
+    }
+
+    .homecards:before {
+        background: #ddd;
+        width: 250%;
+        height: 250%;
+    }
+
+    .homecards:after {
+        background: white;
+        width: 200%;
+        height: 200%;
+    }
+
+    .homecards:hover {
+        color: var(--color);
+    }
+
+        .homecards:hover:before, .card:hover:after {
+            transform: scale(1);
+        }
+
+.homecards-grid-space .num {
+    font-size: 3em;
+    margin-bottom: 1.2rem;
+    margin-left: 1rem;
+}
+
+.info {
+    font-size: 1.2em;
+    display: flex;
+    padding: 1em 3em;
+    height: 3em;
+}
+
+    .info img {
+        height: 3em;
+        margin-right: 0.5em;
+    }
+
+    .info h1 {
+        font-size: 1em;
+        font-weight: normal;
+    }
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1285px) {
+    .homecards-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .homecards-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .info {
+        justify-content: center;
+    }
+
+    .homecards-grid-space .num {
+        /margin-left: 0;
+        /text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .homecards-wrapper {
+        padding: 4rem 2rem;
+    }
+
+    .homecards {
+        max-width: calc(100vw - 4rem);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .info {
+        display: block;
+        text-align: center;
+    }
+
+        .info h1 {
+            margin: 0;
+        }
+}
+
+
+
+
+
+/*button*/
+

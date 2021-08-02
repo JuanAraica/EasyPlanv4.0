@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Modales.Models.Tbl_Trabajador>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <h3>@Html.ActionLink("Nuevo", "CreateWorker", null, new { data_modal = "" })</h3>
+</p>
+<table class="table table-striped" style="text-align:center">
+    <thead class="table-success" style="text-align:center">
+        <tr style="text-align:center">
+            <th scope="col">
+                N° Employee
+            </th>
+            <th scope="col">
+                Name
+            </th>
+            <th scope="col">
+                E-mail
+            </th>
+            <th scope="col">
+                City
+            </th>
+            <th scope="col">
+                State
+            </th>
+            <th colspan="3"><span>Actions</span></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumEmpleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre) @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    <span class="btn btn-success">@Html.ActionLink("Edit", "EditWorker", new { id = item.CedulaTra }, new { data_modal = "" }) </span >
+                        <span class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.CedulaTra }, new { data_modal = "" })</span>
+                        <span class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.CedulaTra }, new { data_modal = "" })</span>
+</td>
+            </tr>
+        }
+
+</table>
