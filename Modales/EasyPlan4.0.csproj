@@ -188,6 +188,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\logo.jpg" />
+    <Content Include="Content\MeCSS.css" />
     <Content Include="Data\Datos.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -295,6 +296,13 @@
     <Content Include="Views\Jornada\EditJornadaRetapa.cshtml" />
     <Content Include="Views\Jornada\EditJornadaDescarga.cshtml" />
     <Content Include="Views\Jornada\EditJornadaHora.cshtml" />
+    <Content Include="Views\Home\AboutUS.cshtml" />
+    <Content Include="Views\Home\Mision.cshtml" />
+    <Content Include="Views\Home\Objetives.cshtml" />
+    <Content Include="Views\Home\Projection.cshtml" />
+    <Content Include="Views\Home\Values.cshtml" />
+    <Content Include="Views\Home\Vision.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

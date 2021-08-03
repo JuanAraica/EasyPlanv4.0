@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="shortcut icon" href="~/Content/logo.jpg" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,48 +21,101 @@
                 @Html.ActionLink("EasyPlan", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About", "AboutUs", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
                 @if (@Html.Action("MostrarUser", "Home") != null)
                 {
-                <ul class="nav navbar-nav">
-                    <li>@Html.Action("MostrarUser", "Home")</li>
-                    
-                </ul>
-                }
+    <ul class="nav navbar-nav">
+        <li>@Html.Action("MostrarUser", "Home")</li>
+
+    </ul>}
 
                 @if ((string)Session["user"] == null)
                 {
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Login", "Login", null, new { data_modal = "" })</li>
-            </ul>
-                    
-                }
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Login", "Login", null, new { data_modal = "" })</li>
+    </ul>}
                 @if ((string)Session["user"] != null)
                 {
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Logout", "LogOut", "Home")</li>
-                <li>@Html.ActionLink("Registry", "Index", "Trabajador")</li>
-            </ul>                    
-                }
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Logout", "LogOut", "Home")</li>
+        <li>@Html.ActionLink("Registry", "Index", "Trabajador")</li>
+    </ul>}
 
 
 
                 <ul class="nav navbar-nav">
                 </ul>
             </div>
-        </div> 
+        </div>
     </div>
-    <div class="container body-content">
+    <div class="body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Nivisix</p>
+        <footer class="footer">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 footer-navigation">
+                    <h3><a href="#">Easy<span>Plan</span></a></h3>
+                    <p class="company-name"><span>Juan E. Araica © @DateTime.Now.Year</span></p>
+                </div>
+                <div class="col-sm-4 col-md-4 footer-contacts">
+                    <div>
+                        <span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p><span class="new-line-span"></span>San Jose, Costa Rica</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-phone footer-contacts-icon"></i>
+                        <p class="footer-center-info email text-left"> +506 86549460</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="#" target="_blank">juanaraica149@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class=" col-sm-4 col-md-4 footer-about">
+                    <h4>About the company</h4>
+                    <p>My personal project.</p>
+                    <div class="social-links social-icons">
+                        <div class="wrapperfooter">
+                            <div class="icon facebook">
+                                <div class="tooltip">Facebook</div>
+                                <span><i class="fab fa-facebook-f"></i></span>
+                            </div>
+                            <div class="icon twitter">
+                                <div class="tooltip">Twitter</div>
+                                <span><i class="fab fa-twitter"></i></span>
+                            </div>
+                            <div class="icon instagram">
+                                <div class="tooltip">Instagram</div>
+                                <span><i class="fab fa-instagram"></i></span>
+                            </div>
+                            <div class="icon github">
+                                <div class="tooltip">Github</div>
+                                <span><i class="fab fa-github"></i></span>
+                            </div>
+                            <div class="icon youtube">
+                                <div class="tooltip">My Site</div>
+                                <span><i class="fab fa-youtube"></i></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - Nivisix</p>
+            </footer>*@
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/modalform")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modalform")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
 <div id='modalGenerica' class='modal fade in'>

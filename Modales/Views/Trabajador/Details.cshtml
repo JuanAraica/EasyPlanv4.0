@@ -3,7 +3,9 @@
     ViewBag.Title = @Html.DisplayFor(model => model.Nombre)+" "+ @Html.DisplayFor(model => model.Apellido)+"'s Details";
     Scripts.Render("~/bundles/jqueryval");
 }
-
+@{ 
+    Layout=null;
+}
 
 <style>
 
@@ -21,7 +23,7 @@
         background-color: #fef8f8;
     }
 
-    .cards {
+    .cardsDetails {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
@@ -30,7 +32,7 @@
         list-style-type: none;
     }
 
-    .card {
+    .cardDetails {
         position: relative;
         display: block;
         height: 100%;
@@ -56,7 +58,7 @@
         transition: .2s ease-in-out;
     }
 
-    .card:hover .card__overlay {
+    .cardDetails:hover .card__overlay {
         transform: translateY(0);
     }
 
@@ -86,7 +88,7 @@
             d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
         }
 
-    .card:hover .card__header {
+    .cardDetails:hover .card__header {
         transform: translateY(0);
     }
 
@@ -138,7 +140,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="panel-body">
 
-            <ul class="cards">
+            <ul class="cardsDetails">
                 <li>
                     <a href="" class="card">
                         <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
