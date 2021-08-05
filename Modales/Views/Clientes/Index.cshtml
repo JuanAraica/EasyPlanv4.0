@@ -4,14 +4,23 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
+<style>
+    body {
+        background: #0094ff;
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
 <h2>Index</h2>
 
 <h3>@Html.ActionLink("Nuevo", "CreateModal", null, new { data_modal = "" })</h3>
 <br />
 <table class="table table-striped" style="text-align:center">
-    <thead class="table-success" style="text-align:center">
-        <tr style="text-align:center">
+    <thead class="table-success" style="        text-align: center;
+        background: #fff;
+">
+        <tr style="        text-align: center;
+        background: #fff;
+" >
             <th scope="col">
                 Name
             </th>
@@ -37,7 +46,8 @@
         @foreach (var item in Model)
 
         {
-            <tr>
+            <tr style="text-align: center;
+        background: #fff;">
                 <td>
                     @Html.DisplayFor(modelItem => item.NombreCliente)
                 </td>
