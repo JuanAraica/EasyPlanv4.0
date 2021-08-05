@@ -25,7 +25,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.CedulaTra).ToHtmlString()),
+                        placeholder = "Worker's ID",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.CedulaTra, "", new { @class = "text-info" })
@@ -37,7 +37,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Nombre).ToHtmlString()),
+                        placeholder = "Name",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-info" })
@@ -49,7 +49,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Apellido).ToHtmlString()),
+                        placeholder = "Last Name",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "text-info" })
@@ -61,7 +61,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Puesto).ToHtmlString()),
+                        placeholder = "Position",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Puesto, "", new { @class = "text-info" })
@@ -73,7 +73,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Edad).ToHtmlString()),
+                        placeholder = "Age",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Edad, "", new { @class = "text-info" })
@@ -85,7 +85,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Telefono).ToHtmlString()),
+                        placeholder = "Phone",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Telefono, "", new { @class = "text-info" })
@@ -98,7 +98,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Correo).ToHtmlString()),
+                        placeholder = "E-mail",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Correo, "", new { @class = "text-info" })
@@ -127,7 +127,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Nacionalidad).ToHtmlString()),
+                        placeholder = "Nationality",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Nacionalidad, "", new { @class = "text-info" })
@@ -139,7 +139,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Ciudad).ToHtmlString()),
+                        placeholder = "City",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Ciudad, "", new { @class = "text-info" })
@@ -151,7 +151,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Direccion).ToHtmlString()),
+                        placeholder = "Direction",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Direccion, "", new { @class = "text-info" })
@@ -163,7 +163,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Empleador).ToHtmlString()),
+                        placeholder = "Employer",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Empleador, "", new { @class = "text-info" })
@@ -187,7 +187,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Padecimientos).ToHtmlString()),
+                        placeholder = "Ailments",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Padecimientos, "", new { @class = "text-info" })
@@ -210,7 +210,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Observacion).ToHtmlString()),
+                        placeholder = "Observation",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Observacion, "", new { @class = "text-info" })
@@ -218,7 +218,7 @@
             </div>
             <div class="form-group">
                 <div>
-                    <input type="submit" value="Guardar" class="btn btn-default" />
+                    <input type="submit" value="Add Worker" class="btn btn-default" />
                 </div>
             </div>
         </div>

@@ -75,6 +75,7 @@ namespace Modales.Controllers
             {
                 return HttpNotFound();
             }
+            Session["trabajador"] = trabajador.CedulaTra;
             return PartialView(trabajador);
         }
 
@@ -84,8 +85,10 @@ namespace Modales.Controllers
         {
             if (ModelState.IsValid)
             {
+                trabajador.CedulaTra = (string)Session["trabajador"];
                 db.Entry(trabajador).State = EntityState.Modified;
                 db.SaveChanges();
+                Session["trabajador"] = null;
                 return Json(new { success = true });
             }
             return PartialView(trabajador);

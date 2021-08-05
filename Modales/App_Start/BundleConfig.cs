@@ -28,6 +28,7 @@ namespace Modales
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/CSSDemo.css",
                       "~/Content/site.css"));
         }
     }

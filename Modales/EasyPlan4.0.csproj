@@ -187,8 +187,10 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CSSDemo.css" />
     <Content Include="Content\logo.jpg" />
     <Content Include="Content\MeCSS.css" />
+    <Content Include="Content\Media\users.png" />
     <Content Include="Data\Datos.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -303,6 +305,10 @@
     <Content Include="Views\Home\Values.cshtml" />
     <Content Include="Views\Home\Vision.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\_LayoutDemo.cshtml" />
+    <Content Include="Views\Trabajador\EditWorker2.cshtml" />
+    <Content Include="Views\Trabajador\Index2.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

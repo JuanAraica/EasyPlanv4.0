@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="~/Content/logo.jpg" type="image/x-icon">
+    @*NavBar*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <style>
+ 
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+        .subnav {
+            float: left;
+            overflow: hidden;
+        }
+
+            .subnav .subnavbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .navbar a:hover, .subnav:hover .subnavbtn {
+                background-color: red;
+            }
+
+        .subnav-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            background-color: red;
+            width: 100%;
+            z-index: 1;
+        }
+
+            .subnav-content a {
+                float: left;
+                color: white;
+                text-decoration: none;
+            }
+
+                .subnav-content a:hover {
+                    background-color: #eee;
+                    color: black;
+                }
+
+        .subnav:hover .subnav-content {
+            display: block;
+        }
+    </style>
+
+
+
+    <div class="navbar">
+        <div class="subnav">
+            <button class="subnavbtn">@Html.ActionLink("<< Logout", "LogOut", "Home")</button>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">@Html.ActionLink("Clients", "Index", "Clientes")</button>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">@Html.ActionLink("Workers", "Index", "Trabajador")</button>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">@Html.ActionLink("Salaries", "Index", "Salario")</button>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">@Html.ActionLink("Loans", "Index", "Prestamos")</button>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">@Html.ActionLink("Journeys", "Index", "Jornada")</button>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">@Html.ActionLink("Advances", "Index", "Adelantos")</button>
+        </div>
+    </div>
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("EasyPlan", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About", "AboutUs", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @if (@Html.Action("MostrarUser", "Home") != null)
+                {
+    <ul class="nav navbar-nav">
+        <li>@Html.Action("MostrarUser", "Home")</li>
+
+    </ul>}
+
+                @if ((string)Session["user"] == null)
+                {
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Login", "Login", null, new { data_modal = "" })</li>
+    </ul>}
+                @if ((string)Session["user"] != null)
+                {
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Logout", "LogOut", "Home")</li>
+        <li>@Html.ActionLink("Registry", "Index", "Trabajador")</li>
+    </ul>}
+
+
+
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>*@
+
+            <div style="padding:0 16px">
+                <div class="body-content">
+                    @RenderBody()
+                    <hr />
+                    <footer class="footer">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4 footer-navigation">
+                                <h3><a href="#">Easy<span>Plan</span></a></h3>
+                                <p class="company-name"><span>Juan E. Araica © @DateTime.Now.Year</span></p>
+                            </div>
+                            <div class="col-sm-4 col-md-4 footer-contacts">
+                                <div>
+                                    <span class="fa fa-map-marker footer-contacts-icon"> </span>
+                                    <p><span class="new-line-span"></span>San Jose, Costa Rica</p>
+                                </div>
+                                <div>
+                                    <i class="fa fa-phone footer-contacts-icon"></i>
+                                    <p class="footer-center-info email text-left"> +506 86549460</p>
+                                </div>
+                                <div>
+                                    <i class="fa fa-envelope footer-contacts-icon"></i>
+                                    <p> <a href="#" target="_blank">juanaraica149@gmail.com</a></p>
+                                </div>
+                            </div>
+
+                            <div class=" col-sm-4 col-md-4 footer-about">
+                                <h4>About the company</h4>
+                                <p>My personal project.</p>
+                                <div class="social-links social-icons">
+                                    <div class="wrapperfooter">
+                                        <div class="icon facebook">
+                                            <div class="tooltip">Facebook</div>
+                                            <span><i class="fab fa-facebook-f"></i></span>
+                                        </div>
+                                        <div class="icon twitter">
+                                            <div class="tooltip">Twitter</div>
+                                            <span><i class="fab fa-twitter"></i></span>
+                                        </div>
+                                        <div class="icon instagram">
+                                            <div class="tooltip">Instagram</div>
+                                            <span><i class="fab fa-instagram"></i></span>
+                                        </div>
+                                        <div class="icon github">
+                                            <div class="tooltip">Github</div>
+                                            <span><i class="fab fa-github"></i></span>
+                                        </div>
+                                        <div class="icon youtube">
+                                            <div class="tooltip">My Site</div>
+                                            <span><i class="fab fa-youtube"></i></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/modalform")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+</body>
+</html>
+<div id='modalGenerica' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='contentModal'></div>
+        </div>
+    </div>
+</div>
