@@ -112,74 +112,8 @@
     <h3 style="text-align:center;"><span class="btn btn-default">@Html.ActionLink("New Client", "CreateModal", null, new { data_modal = "" })</span> </h3>
 </p>
 <br />
-@*<table class="table table-striped" style="text-align:center">
-    <thead class="table-success" style="        text-align: center;
-        background: #fff;
-">
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Contact
-            </th>
-            <th>
-                Direction
-            </th>
-            <th>
-                Phone
-            </th>
-            <th scope="col">
-                E-mail
-            </th>
-            <th>
-                Project
-            </th>
-            <th><span>Actions</span></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-
-        {
-            <tr style="text-align: center;
-        background: #fff;">
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombreCliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Contacto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Direccion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Proyecto)
-                </td>
-                <td>
-                    <span class="btn btn-success">@Html.ActionLink("Edit", "EditClient", new { id = item.NombreCliente }, new { data_modal = "" })</span>
-                    <span class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.NombreCliente }, new { data_modal = "" }) </span>
-                    <span class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.NombreCliente }, new { data_modal = "" })</span>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>*@
-
-
-
-
-
-
-
 <section>
-    <h1>Worker's Registry</h1>
+    <h1>Clients's Registry</h1>
     <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>

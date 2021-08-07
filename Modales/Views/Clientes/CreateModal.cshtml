@@ -23,7 +23,7 @@
                         new
                         {
                             @class = "form-control",
-                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.NombreCliente).ToHtmlString()),
+                            placeholder = "Name",
                             style = "margin: 0 auto;"
                         })
                         @Html.ValidationMessageFor(m => m.NombreCliente, "", new { @class = "text-info" })
@@ -35,7 +35,7 @@
                         new
                         {
                             @class = "form-control",
-                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Contacto).ToHtmlString()),
+                            placeholder = "Contact",
                             style = "margin: 0 auto;"
                         })
                         @Html.ValidationMessageFor(m => m.Contacto, "", new { @class = "text-info" })
@@ -47,7 +47,7 @@
                         new
                         {
                             @class = "form-control",
-                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Direccion).ToHtmlString()),
+                            placeholder = "Direction",
                             style = "margin: 0 auto;"
                         })
                         @Html.ValidationMessageFor(m => m.Direccion, "", new { @class = "text-info" })
@@ -59,7 +59,7 @@
                         new
                         {
                             @class = "form-control",
-                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Telefono).ToHtmlString()),
+                            placeholder = "Phone",
                             style = "margin: 0 auto;"
                         })
                         @Html.ValidationMessageFor(m => m.Telefono, "", new { @class = "text-info" })
@@ -71,7 +71,7 @@
                         new
                         {
                             @class = "form-control",
-                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Email).ToHtmlString()),
+                            placeholder = "E-mail",
                             style = "margin: 0 auto;"
                         })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-info" })
@@ -83,7 +83,7 @@
                         new
                         {
                             @class = "form-control",
-                            placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Proyecto).ToHtmlString()),
+                            placeholder = "Project",
                             style = "margin: 0 auto;"
                         })
                         @Html.ValidationMessageFor(m => m.Proyecto, "", new { @class = "text-info" })
@@ -91,7 +91,7 @@
                 </div>
                 <div class="form-group">
                     <div>
-                        <input type="submit" value="Guardar" class="btn btn-default" />
+                        <input type="submit" value="Save" class="btn btn-default" />
                     </div>
                 </div>
             </div>

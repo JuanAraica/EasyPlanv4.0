@@ -3,51 +3,180 @@
     ViewBag.Title = "Loans";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
-<hr />
-
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { data_modal = "" })
-</p>
-<table class="table table-dark" style="text-align:center">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Tbl_Trabajador.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaPrestamo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Monto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmisorPrestamo)
-        </th>
-        <th colspan="3"><span>Actions</span></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaPrestamo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Monto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmisorPrestamo)
-            </td>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.idPrestamo }, new { data_modal = "" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.idPrestamo }, new { data_modal = "" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.idPrestamo }, new { data_modal = "" })
-            </td>
-        </tr>
+<style>
+    body {
+        background: #0094ff;
+        font-family: 'Roboto', sans-serif;
     }
 
-</table>
+    h1 {
+        font-size: 2.8rem;
+        color: #fff;
+        margin: 40px 0 20px 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 30px;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .tbl-header {
+        background-color: rgba(255,255,255,0.3);
+    }
+
+    .tbl-content {
+        height: 300px;
+        overflow-x: auto;
+        margin-top: 0px;
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    th {
+        padding: 20px 15px;
+        text-align: left;
+        font-weight: 500;
+        font-size: 12px;
+        color: #000;
+        text-transform: uppercase;
+    }
+
+    td {
+        padding: 15px;
+        text-align: left;
+        vertical-align: middle;
+        font-weight: 300;
+        font-size: 12px;
+        color: #000;
+        border-bottom: solid 1px rgba(255,255,255,0.1);
+    }
+    /* demo styles */
+    section {
+        margin: 50px;
+        background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+        background: linear-gradient(to right, #25c481, #25b7c4);
+        font-family: 'Roboto', sans-serif;
+    }
+    /* follow me template */
+    .made-with-love {
+        margin-top: 40px;
+        padding: 10px;
+        clear: left;
+        text-align: center;
+        font-size: 10px;
+        font-family: arial;
+        color: #fff;
+    }
+
+        .made-with-love i {
+            font-style: normal;
+            color: #F50057;
+            font-size: 14px;
+            position: relative;
+            top: 2px;
+        }
+
+        .made-with-love a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+            .made-with-love a:hover {
+                text-decoration: underline;
+            }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<p>
+
+    <h3 style="text-align:center;"><span class="btn btn-default">@Html.ActionLink("Create New", "Create", null, new { data_modal = "" })</span> </h3>
+</p>
+<hr />
+ 
+<section>
+    <h1>Loan's Registry</h1>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tbl_Trabajador.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaPrestamo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Monto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmisorPrestamo)
+                    </th>
+                    <th><span>Actions</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaPrestamo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Monto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmisorPrestamo)
+                        </td>
+
+                        <td>
+                        <span class="btn btn-success">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.idPrestamo }, new { data_modal = "" })
+                        </span>
+                        <span class="btn btn-info">
+                            @Html.ActionLink("Details", "Details", new { id = item.idPrestamo }, new { data_modal = "" })
+                        </span>
+                        <span class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.idPrestamo }, new { data_modal = "" })</span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+
+<script>
+    $(window).on("load resize ", function () {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({ 'padding-right': scrollWidth });
+    }).resize();
+</script>
