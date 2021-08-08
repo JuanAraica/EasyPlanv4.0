@@ -1,6 +1,6 @@
 ﻿@model Modales.Models.Tbl_Clientes
 @{
-    ViewBag.Title = "Edit Client";
+    ViewBag.Title = "Edit " + @Html.DisplayFor(model => model.NombreCliente) + "'s Record";
 }
 @Scripts.Render("~/bundles/jqueryval")
 
@@ -19,6 +19,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     <div class="text-center">
+                        <span style="margin: 0 auto;">Name</span>
                         @Html.TextBoxFor(m => m.NombreCliente,
                         new
                         {
@@ -31,6 +32,7 @@
                 </div>
                 <div class="form-group">
                     <div class="text-center">
+                        <span style="margin: 0 auto;">Contact</span>
                         @Html.TextBoxFor(m => m.Contacto,
                         new
                         {
@@ -43,6 +45,7 @@
                 </div>
                 <div class="form-group">
                     <div class="text-center">
+                        <span style="margin: 0 auto;">Direction</span>
                         @Html.TextBoxFor(m => m.Direccion,
                         new
                         {
@@ -55,6 +58,7 @@
                 </div>
                 <div class="form-group">
                     <div class="text-center">
+                        <span style="margin: 0 auto;">Phone</span>
                         @Html.TextBoxFor(m => m.Telefono,
                         new
                         {
@@ -67,6 +71,7 @@
                 </div>
                 <div class="form-group">
                     <div class="text-center">
+                        <span style="margin: 0 auto;">E-mail</span>
                         @Html.TextBoxFor(m => m.Email,
                         new
                         {
@@ -79,6 +84,7 @@
                 </div>
                 <div class="form-group">
                     <div class="text-center">
+                        <span style="margin: 0 auto;">Name</span>Project
                         @Html.TextBoxFor(m => m.Proyecto,
                         new
                         {
@@ -91,7 +97,7 @@
                 </div>
                 <div class="form-group">
                     <div>
-                        <input type="submit" value="Guardar" class="btn btn-default" />
+                        <input type="submit" value="Save" class="btn btn-default" />
                     </div>
                 </div>
             </div>

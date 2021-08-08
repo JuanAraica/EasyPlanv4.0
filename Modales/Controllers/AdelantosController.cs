@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -22,21 +24,32 @@ namespace Modales.Controllers
         // GET: Adelantos/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Tbl_Adelantos tbl_Adelantos = db.Tbl_Adelantos.Find(id);
+                if (tbl_Adelantos == null)
+                {
+                    return HttpNotFound();
+                }
+                return PartialView(tbl_Adelantos);
             }
-            Tbl_Adelantos tbl_Adelantos = db.Tbl_Adelantos.Find(id);
-            if (tbl_Adelantos == null)
+            catch (Exception ex)
             {
-                return HttpNotFound();
+                ViewBag.ErrorMesage = "Error interno!";
+                ModelState.AddModelError("Erro de sistema!", ex);
+                return View();
             }
-            return PartialView(tbl_Adelantos);
+            
         }
 
         // GET: Adelantos/Create
         public ActionResult Create()
         {
+            ViewBag.CedulaTra = new SelectList(db.Tbl_Trabajador, "CedulaTra", "Nombre");
             return PartialView();
         }
 
@@ -44,6 +57,8 @@ namespace Modales.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Tbl_Adelantos adelanto)
         {
+            try
+            {
             if (ModelState.IsValid)
             {
                 db.Tbl_Adelantos.Add(adelanto);
@@ -51,11 +66,21 @@ namespace Modales.Controllers
                 return Json(new { success = true });
             }
            return PartialView(adelanto);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMesage = "Error interno!";
+                ModelState.AddModelError("Erro de sistema!", ex);
+                return View();
+            }
+
         }
 
         // GET: Adelantos/Edit/5
         public ActionResult Edit(int? id)
         {
+            try
+            {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -66,12 +91,22 @@ namespace Modales.Controllers
                 return HttpNotFound();
             }
           return PartialView(adelanto);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMesage = "Error interno!";
+                ModelState.AddModelError("Erro de sistema!", ex);
+                return View();
+            }
+
         }
 
        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Tbl_Adelantos adelanto)
         {
+            try
+            {
             if (ModelState.IsValid)
             {
                 db.Entry(adelanto).State = EntityState.Modified;
@@ -79,12 +114,22 @@ namespace Modales.Controllers
                 return Json(new { success = true });
             }
           return PartialView(adelanto);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMesage = "Error interno!";
+                ModelState.AddModelError("Erro de sistema!", ex);
+                return View();
+            }
+
         }
 
         // GET: Adelantos/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            try
+            {
+             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -94,6 +139,15 @@ namespace Modales.Controllers
                 return HttpNotFound();
             }
             return PartialView(adelanto);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMesage = "Error interno!";
+                ModelState.AddModelError("Erro de sistema!", ex);
+                return View();
+            }
+
+
         }
 
         // POST: Adelantos/Delete/5
@@ -101,11 +155,29 @@ namespace Modales.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tbl_Adelantos adelanto = db.Tbl_Adelantos.Find(id);
-            db.Tbl_Adelantos.Remove(adelanto);
-            db.SaveChanges();
-            return Json(new { success = true });
+            try
+            {
+                Tbl_Adelantos adelanto = db.Tbl_Adelantos.Find(id);
+                db.Tbl_Adelantos.Remove(adelanto);
+                db.SaveChanges();
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMesage = "Error interno!";
+                ModelState.AddModelError("Erro de sistema!", ex);
+                return PartialView();
+            }
+            
         }
+
+        public ActionResult AdelantossPorTrabajador(Tbl_Adelantos adelantos)
+        {
+            Tbl_Trabajador trabajador = new Tbl_Trabajador();
+                List<Tbl_Adelantos> lista = db.Tbl_Adelantos.Where(a => a.CedulaTra == trabajador.CedulaTra).ToList();
+                return PartialView(lista);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
@@ -117,3 +189,18 @@ namespace Modales.Controllers
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

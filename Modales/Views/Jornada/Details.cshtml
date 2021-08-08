@@ -1,186 +1,149 @@
 ﻿@model Modales.Models.Tbl_Jornada
 
-@{
-    ViewBag.Title = "Details";
-}
+@{ ViewBag.Title = @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre) + " " + @Html.DisplayFor(model => model.Tbl_Trabajador.Apellido) + " Advance's Details"; }
+@Scripts.Render("~/bundles/jqueryval")
+ 
 
-<h2>Details</h2>
+<section>
+    <div class="modal-shadow text-center">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>@ViewBag.Title</h4>
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>
+                Worker
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre) @Html.DisplayFor(model => model.Tbl_Trabajador.Apellido)
 
-<div>
-    <h4>Tbl_Jornada</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TipoJornada)
-        </dt>
+            </dd>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TipoJornada)
+            </dd>
+            @if (@Html.DisplayFor(model => model.HoraInicio)!=null)
+            {
+            <dt>
+                @Html.DisplayNameFor(model => model.HoraInicio)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TipoJornada)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.HoraInicio)
+            </dd>
+            }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HoraInicio)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.HoraFin)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HoraInicio)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.HoraFin)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HoraFin)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioHoraRegular)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HoraFin)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PrecioHoraRegular)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioHoraRegular)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioHoraExtra)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrecioHoraRegular)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PrecioHoraExtra)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioHoraExtra)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CantidadHorasRegulares)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrecioHoraExtra)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CantidadHorasRegulares)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CantidadHorasRegulares)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CantidadHorasExtras)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CantidadHorasRegulares)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CantidadHorasExtras)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CantidadHorasExtras)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ValorTotalHoraExtra)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CantidadHorasExtras)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ValorTotalHoraExtra)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ValorTotalHoraExtra)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ValorTotalHorasRegulares)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ValorTotalHoraExtra)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ValorTotalHorasRegulares)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ValorTotalHorasRegulares)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.UnidadMedida)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ValorTotalHorasRegulares)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.UnidadMedida)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioDia)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioUnidadMedida)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrecioDia)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PrecioUnidadMedida)
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UnidadMedida)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.LaborExtra)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UnidadMedida)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LaborExtra)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioUnidadMedida)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioLaborExtra)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrecioUnidadMedida)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PrecioLaborExtra)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ValorTotalUnidadMedida)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaJornada)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ValorTotalUnidadMedida)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FechaJornada)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioMetro)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Observacion)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrecioMetro)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Observacion)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioPaquete)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrecioPaquete)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LaborExtra)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LaborExtra)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioLaborExtra)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PrecioLaborExtra)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaJornada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaJornada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SalarioJornada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SalarioJornada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Observacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Observacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tbl_Trabajador.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idJornada }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    </div>
+</section>

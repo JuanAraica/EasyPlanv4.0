@@ -38,7 +38,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.SalarioBruto).ToHtmlString()),
+                        placeholder = "Gross salary",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.SalarioBruto, "", new { @class = "text-info" })
@@ -50,7 +50,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Prestamos).ToHtmlString()),
+                        placeholder = "Loans",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Prestamos, "", new { @class = "text-info" })
@@ -62,7 +62,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Adelantos).ToHtmlString()),
+                        placeholder = "Advances",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Adelantos, "", new { @class = "text-info" })
@@ -74,7 +74,7 @@
                     new
                     {
                         @class = "form-control",
-                        placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Otros).ToHtmlString()),
+                        placeholder = "Others",
                         style = "margin: 0 auto;"
                     })
                     @Html.ValidationMessageFor(m => m.Otros, "", new { @class = "text-info" })

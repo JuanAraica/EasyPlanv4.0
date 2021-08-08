@@ -29,48 +29,48 @@
                     <div class="form-group">
                         <div class="text-center">
                             @Html.TextBoxFor(m => m.PrecioHoraRegular,
-                                                                 new
-                                                                 {
-                                                                     @class = "form-control",
-                                                                     placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.PrecioHoraRegular).ToHtmlString()),
-                                                                     style = "margin: 0 auto;"
-                                                                 })
+                            new
+                            {
+                                @class = "form-control",
+                                placeholder = "Price Regular Time",
+                                style = "margin: 0 auto;"
+                            })
                             @Html.ValidationMessageFor(m => m.PrecioHoraRegular, "", new { @class = "text-info" })
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="text-center">
                             @Html.TextBoxFor(m => m.PrecioHoraExtra,
-                                                                 new
-                                                                 {
-                                                                     @class = "form-control",
-                                                                     placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.PrecioHoraExtra).ToHtmlString()),
-                                                                     style = "margin: 0 auto;"
-                                                                 })
+                            new
+                            {
+                                @class = "form-control",
+                                placeholder = "Price Extra Time",
+                                style = "margin: 0 auto;"
+                            })
                             @Html.ValidationMessageFor(m => m.PrecioHoraExtra, "", new { @class = "text-info" })
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="text-center">
                             @Html.TextBoxFor(m => m.HoraInicio,
-                                                                 new
-                                                                 {
-                                                                     @class = "form-control",
-                                                                     placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.HoraInicio).ToHtmlString()),
-                                                                     style = "margin: 0 auto;"
-                                                                 })
+                            new
+                            {
+                                @class = "form-control",
+                                placeholder = "Start Time",
+                                style = "margin: 0 auto;"
+                            })
                             @Html.ValidationMessageFor(m => m.HoraInicio, "", new { @class = "text-info" })
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="text-center">
                             @Html.TextBoxFor(m => m.HoraFin,
-                                                                 new
-                                                                 {
-                                                                     @class = "form-control",
-                                                                     placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.HoraFin).ToHtmlString()),
-                                                                     style = "margin: 0 auto;"
-                                                                 })
+                            new
+                            {
+                                @class = "form-control",
+                                placeholder = "End Time",
+                                style = "margin: 0 auto;"
+                            })
                             @Html.ValidationMessageFor(m => m.HoraFin, "", new { @class = "text-info" })
                         </div>
                     </div>
@@ -78,14 +78,14 @@
                         <div class="text-center">
                             <span style="margin: 0 auto;">Date</span>
                             @Html.TextBoxFor(m => m.FechaJornada,
-                                                     new
-                                                     {
-                                                         @class = "form-control",
-                                                         placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.FechaJornada).ToHtmlString()),
-                                                         style = "margin: 0 auto;",
-                                                         type = "date",
-                                                         text = "Date"
-                                                     })
+                            new
+                            {
+                                @class = "form-control",
+                                placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.FechaJornada).ToHtmlString()),
+                                style = "margin: 0 auto;",
+                                type = "date",
+                                text = "Date"
+                            })
                             @Html.ValidationMessageFor(m => m.FechaJornada, "", new { @class = "text-info" })
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                                  new
                                  {
                                      @class = "form-control",
-                                     placeholder = @HttpUtility.HtmlDecode(Html.DisplayNameFor(m => m.Observacion).ToHtmlString()),
+                                     placeholder = "Observation",
                                      style = "margin: 0 auto;"
                                  })
                             @Html.ValidationMessageFor(m => m.Observacion, "", new { @class = "text-info" })

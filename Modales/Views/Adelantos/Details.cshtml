@@ -1,50 +1,50 @@
 ﻿@model Modales.Models.Tbl_Adelantos
 
-@{
-    ViewBag.Title = "Details";
-}
+@{ ViewBag.Title = @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre) + " " + @Html.DisplayFor(model => model.Tbl_Trabajador.Apellido) + " Advance's Details"; }
+@Scripts.Render("~/bundles/jqueryval")
+ 
+<section>
+    <div class="modal-shadow text-center">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>@ViewBag.Title</h4>
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>
+                Worker
+            </dt>
 
-<h2>Details</h2>
+            <dd>
+                @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre) @Html.DisplayFor(model => model.Tbl_Trabajador.Apellido)
+            </dd>
+            <dt>
+                Value
+            </dt>
 
-<div>
-    <h4>Tbl_Adelantos</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Monto)
-        </dt>
+            <dd>
+                ₡  @Html.DisplayFor(model => model.Monto)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Monto)
-        </dd>
+            <dt>
+                Date
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaAdelanto)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FechaAdelanto)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaAdelanto)
-        </dd>
+            <dt>
+                Issuing
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmisorAdelento)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EmisorAdelento)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmisorAdelento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tbl_Trabajador.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idAdelento }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    </div>
+</section>

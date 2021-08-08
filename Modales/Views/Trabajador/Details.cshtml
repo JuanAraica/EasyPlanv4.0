@@ -3,130 +3,7 @@
     ViewBag.Title = @Html.DisplayFor(model => model.Nombre) + " " + @Html.DisplayFor(model => model.Apellido) + "'s Details";
     Scripts.Render("~/bundles/jqueryval");
 }
-
-
-@*<style>
-
-        :root {
-            --surface-color: #fff;
-            --curve: 40;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: #fef8f8;
-        }
-
-        .cardsDetails {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 5vw;
-            padding: 0;
-            list-style-type: none;
-        }
-
-        .cardDetails {
-            position: relative;
-            display: block;
-            height: 100%;
-            border-radius: calc(var(--curve) * 1px);
-            overflow: hidden;
-            text-decoration: none;
-        }
-
-        .card__image {
-            width: 100%;
-            height: auto;
-        }
-
-        .card__overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 1;
-            border-radius: calc(var(--curve) * 1px);
-            background-color: var(--surface-color);
-            transform: translateY(100%);
-            transition: .2s ease-in-out;
-        }
-
-        .cardDetails:hover .card__overlay {
-            transform: translateY(0);
-        }
-
-        .card__header {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 2em;
-            padding: 2em;
-            border-radius: calc(var(--curve) * 1px) 0 0 0;
-            background-color: var(--surface-color);
-            transform: translateY(-100%);
-            transition: .2s ease-in-out;
-        }
-
-        .card__arc {
-            width: 80px;
-            height: 80px;
-            position: absolute;
-            bottom: 100%;
-            right: 0;
-            z-index: 1;
-        }
-
-            .card__arc path {
-                fill: var(--surface-color);
-                d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-            }
-
-        .cardDetails:hover .card__header {
-            transform: translateY(0);
-        }
-
-        .card__thumb {
-            flex-shrink: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .card__title {
-            font-size: 1em;
-            margin: 0 0 .3em;
-            color: #6A515E;
-        }
-
-        .card__tagline {
-            display: block;
-            margin: 1em 0;
-            font-family: "MockFlowFont";
-            font-size: .8em;
-            color: #D7BDCA;
-        }
-
-        .card__status {
-            font-size: .8em;
-            color: #D7BDCA;
-        }
-
-        .card__description {
-            padding: 0 2em 2em;
-            margin: 0;
-            color: #D7BDCA;
-            font-family: "MockFlowFont";
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-        }
-    </style>
+ 
 
     <section>
         <div class="modal-shadow text-center">
@@ -136,236 +13,130 @@
                 </div>
             </div>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="panel-body">
+        <div class="panel-body">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Puesto)
+                </dt>
 
-                <ul class="cardsDetails">
-                    <li>
-                        <a href="" class="card">
-                            <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
-                            <div class="card__overlay">
-                                <div class="card__header">
-                                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
-                                    <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
-                                    <div class="card__header-text">
-                                        <h3 class="card__title">@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</h3>
-                                        <span class="card__status">@Html.DisplayFor(model => model.NumEmpleado)</span>
-                                        <span class="card__status">@Html.DisplayFor(model => model.Estado)</span>
-                                    </div>
-                                </div>
-                                <dl class="dl-horizontal">
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Puesto)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Puesto)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Puesto)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Edad)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Edad)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Edad)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Edad)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Telefono)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Telefono)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Telefono)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Correo)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Correo)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Correo)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Correo)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.FechaNacimiento)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FechaNacimiento)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.FechaNacimiento)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nacionalidad)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Nacionalidad)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nacionalidad)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Nacionalidad)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ciudad)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Ciudad)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Ciudad)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Ciudad)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Direccion)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Direccion)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Direccion)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FechaEmpleo)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.FechaEmpleo)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FechaEmpleo)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.FechaEmpleo)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Empleador)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Empleador)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Empleador)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Empleador)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FechaDespido)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.FechaDespido)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FechaDespido)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.FechaDespido)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.InicioIncapacidad)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.InicioIncapacidad)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.InicioIncapacidad)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.InicioIncapacidad)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FinalIncapacidad)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.FinalIncapacidad)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FinalIncapacidad)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.FinalIncapacidad)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Padecimientos)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Padecimientos)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Padecimientos)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Padecimientos)
-                                    </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Observacion)
+                </dt>
 
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Observacion)
-                                    </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Observacion)
+                </dd>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Observacion)
-                                    </dd>
-
-                                </dl>
-                            </div>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
+            </dl>
         </div>
-    </section>*@
-
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: "Roboto", sans-serif;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background-color: #34495e;
-    }
-
-    .cards {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    .card {
-        margin: 40px;
-        position: relative;
-        max-width: 250px;
-        max-height: 350px;
-        box-shadow: 0 40px 60px -6px black;
-    }
-
-    .card-title {
-        display: block;
-        text-align: center;
-        color: #fff;
-        background-color: #6184a8;
-        padding: 2%;
-        border-top-right-radius: 4px;
-        border-top-left-radius: 4px;
-    }
-
-    .card img {
-        width: 100%;
-        height: 98%;
-        object-fit: cover;
-        display: block;
-        position: relative;
-    }
-
-    .card-desc {
-        display: block;
-        font-size: 1.2rem;
-        position: absolute;
-        height: 0;
-        top: 0;
-        opacity: 0;
-        padding: 18px 8%;
-        background-color: white;
-        overflow-y: scroll;
-        transition: 0.8s ease;
-    }
-
-    .card:hover .card-desc {
-        opacity: 1;
-        height: 100%;
-    }
-
-    h1 {
-        font-size: 2.8rem;
-        color: #fff;
-        margin: 40px 0 20px 0;
-        text-align: center;
-    }
-</style>
-
-
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<h1>Card Image with description on :hover</h1>
-<div class="cards">
-    <div class="card">
-        <h2 class="card-title">Seal</h2>
-        <img src="https://images.unsplash.com/photo-1591485423007-765bde4139ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="">
-        <p class="card-desc">Pinnipeds, commonly known as seals,[a] are a widely distributed and diverse clade of carnivorous, fin-footed, semiaquatic marine mammals. They comprise the extant families Odobenidae (whose only living member is the walrus), Otariidae (the eared seals: sea lions and fur seals), and Phocidae (the earless seals, or true seals).</p>
-    </div>
-</div>
+        </div>
+    </section>
+ 

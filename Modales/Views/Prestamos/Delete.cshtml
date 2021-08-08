@@ -1,7 +1,5 @@
 ﻿@model Modales.Models.Tbl_Prestamos
-@{
-    ViewBag.Title = "Delete " + @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre) + " " + @Html.DisplayFor(model => model.Tbl_Trabajador.Apellido) + "'s Salary";
-}
+@{ ViewBag.Title = "Delete " + @Html.DisplayFor(model => model.Tbl_Trabajador.Nombre) + " " + @Html.DisplayFor(model => model.Tbl_Trabajador.Apellido) + "'s Salary"; }
 @Scripts.Render("~/bundles/jqueryval")
 
 <section>
@@ -20,12 +18,13 @@
             </div>
             @using (Html.BeginForm())
             {
-                @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
                 <div class="form-group">
                     <div>
                         <input type="submit" value="Delete" class="btn btn-default" />
                         <input type="button" value="Cancel" class="btn btn-default" data-dismiss="modal" />
                     </div>
-                </div>
-            }
+                </div>}
         </div>
+    </div>
+</section>

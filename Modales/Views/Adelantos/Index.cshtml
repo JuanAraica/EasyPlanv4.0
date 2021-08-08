@@ -127,17 +127,18 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Monto)
+                        Worker
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.FechaAdelanto)
+                        Value
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.EmisorAdelento)
+                        Date
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Tbl_Trabajador.Nombre)
+                        Issuing
                     </th>
+
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -150,6 +151,9 @@
                 {
                 <tr>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Nombre) @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Apellido)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Monto)
                     </td>
                     <td>
@@ -158,13 +162,11 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.EmisorAdelento)
                     </td>
+
                     <td>
-                        @Html.DisplayFor(modelItem => item.Tbl_Trabajador.Nombre)
-                    </td>
-                    <td>
-                        <span class="btn btn-success">@Html.ActionLink("Edit", "Edit", new { id = item.CedulaTra }, new { data_modal = "" }) </span>
-                        <span class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.CedulaTra }, new { data_modal = "" })</span>
-                        <span class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.CedulaTra }, new { data_modal = "" })</span>
+                        <span class="btn btn-success">@Html.ActionLink("Edit", "Edit", new { id = item.idAdelento }, new { data_modal = "" }) </span>
+                        <span class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.idAdelento }, new { data_modal = "" })</span>
+                        <span class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.idAdelento }, new { data_modal = "" })</span>
                     </td>
                 </tr>
                 }

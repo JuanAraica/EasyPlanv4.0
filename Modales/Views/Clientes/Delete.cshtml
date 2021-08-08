@@ -1,7 +1,7 @@
 ﻿@model Modales.Models.Tbl_Clientes
 
 @{
-    ViewBag.Title = "Delete Client";
+    ViewBag.Title = "Delete " + @Html.DisplayFor(m => m.NombreCliente) +  "'s Record";
 }
 @Scripts.Render("~/bundles/jqueryval")
 <section>
