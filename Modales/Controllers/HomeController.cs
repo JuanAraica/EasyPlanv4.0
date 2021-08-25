@@ -11,7 +11,7 @@ namespace Modales.Controllers
     {
 
         private EasyPlanDB db = new EasyPlanDB();
- 
+
 
         public ActionResult Index()
         {
@@ -30,15 +30,16 @@ namespace Modales.Controllers
 
             if (ModelState.IsValid)
             {
-
+                user.Correo = Seguridad.Encriptar(user.Correo);
+                user.CedulaTra= Seguridad.Encriptar(user.CedulaTra);
                 Tbl_Trabajador trabajador = db.Tbl_Trabajador.Find(user.CedulaTra);
- 
-                if (trabajador!=null)
+
+                if (trabajador != null)
                 {
-                    if (trabajador.Correo== user.Correo)
+                    if (trabajador.Correo == user.Correo)
                     {
-                        
-                        RegistrarAccion("Ha iniciado sesión", trabajador.Nombre +" "+ trabajador.Apellido);
+
+                        RegistrarAccion("Ha iniciado sesión", Seguridad.DesEncriptar(trabajador.Nombre) + " " + Seguridad.DesEncriptar(trabajador.Apellido));
                         Session["user"] = trabajador.CedulaTra;
 
                         return Json(new { success = true });
@@ -55,9 +56,9 @@ namespace Modales.Controllers
 
         public ActionResult mostrarUser()
         {
-            if ((string)Session["user"] !=null)
+            if ((string)Session["user"] != null)
             {
-                Tbl_Trabajador user = db.Tbl_Trabajador.Find((string)Session["user"]);
+                Tbl_Trabajador user = db.Tbl_Trabajador.Find(Seguridad.DesEncriptar((string)Session["user"]));
                 return PartialView(user);
             }
             return null;
@@ -134,5 +135,8 @@ namespace Modales.Controllers
 
             return View();
         }
+
     }
 }
+
+ 

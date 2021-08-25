@@ -61,7 +61,8 @@ namespace Modales.Controllers
             {
             if (ModelState.IsValid)
             {
-                db.Tbl_Adelantos.Add(adelanto);
+
+                    db.Tbl_Adelantos.Add(adelanto);
                 db.SaveChanges();
                 return Json(new { success = true });
             }

@@ -38,7 +38,7 @@
             <PropertyRef Name="idAdelento" />
           </Key>
           <Property Name="idAdelento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CedulaTra" Type="varchar" MaxLength="20" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="100" />
           <Property Name="Monto" Type="int" Nullable="false" />
           <Property Name="FechaAdelanto" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="EmisorAdelento" Type="varchar" MaxLength="20" Nullable="false" />
@@ -68,7 +68,7 @@
             <PropertyRef Name="idJornada" />
           </Key>
           <Property Name="idJornada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CedulaTra" Type="varchar" MaxLength="20" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="100" />
           <Property Name="idSalario" Type="int" />
           <Property Name="TipoJornada" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="HoraInicio" Type="varchar" MaxLength="20" />
@@ -94,7 +94,7 @@
             <PropertyRef Name="idPrestamo" />
           </Key>
           <Property Name="idPrestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CedulaTra" Type="varchar" MaxLength="20" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="100" />
           <Property Name="Monto" Type="int" Nullable="false" />
           <Property Name="FechaPrestamo" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="EmisorPrestamo" Type="varchar" MaxLength="20" Nullable="false" />
@@ -104,7 +104,7 @@
             <PropertyRef Name="idSalario" />
           </Key>
           <Property Name="idSalario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CedulaTra" Type="varchar" MaxLength="20" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="100" />
           <Property Name="SalarioBruto" Type="int" Nullable="false" />
           <Property Name="Seguro" Type="int" Nullable="false" />
           <Property Name="Prestamos" Type="int" />
@@ -120,13 +120,13 @@
           <Key>
             <PropertyRef Name="CedulaTra" />
           </Key>
-          <Property Name="CedulaTra" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="Apellido" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="Puesto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CedulaTra" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Puesto" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Edad" Type="int" Nullable="false" />
-          <Property Name="Telefono" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="100" />
           <Property Name="FechaNacimiento" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Nacionalidad" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="NumEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -241,7 +241,7 @@
             <PropertyRef Name="idAdelento" />
           </Key>
           <Property Name="idAdelento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CedulaTra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Monto" Type="Int32" Nullable="false" />
           <Property Name="FechaAdelanto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EmisorAdelento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -272,7 +272,7 @@
             <PropertyRef Name="idPrestamo" />
           </Key>
           <Property Name="idPrestamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CedulaTra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Monto" Type="Int32" Nullable="false" />
           <Property Name="FechaPrestamo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EmisorPrestamo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -283,7 +283,7 @@
             <PropertyRef Name="idSalario" />
           </Key>
           <Property Name="idSalario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CedulaTra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SalarioBruto" Type="Int32" Nullable="false" />
           <Property Name="Seguro" Type="Int32" Nullable="false" />
           <Property Name="Prestamos" Type="Int32" />
@@ -301,13 +301,13 @@
           <Key>
             <PropertyRef Name="CedulaTra" />
           </Key>
-          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Puesto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CedulaTra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Puesto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Edad" Type="Int32" Nullable="false" />
-          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FechaNacimiento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nacionalidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NumEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
@@ -426,7 +426,7 @@
             <PropertyRef Name="idJornada" />
           </Key>
           <Property Name="idJornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CedulaTra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CedulaTra" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="idSalario" Type="Int32" />
           <Property Name="TipoJornada" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="HoraInicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />

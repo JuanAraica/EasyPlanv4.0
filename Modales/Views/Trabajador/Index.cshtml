@@ -139,7 +139,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@Html.DisplayFor(modelItem => item.NumEmpleado)</td>
+                            <td><span>@Html.DisplayFor(modelItem => item.NumEmpleado)</span></td>
                             <td>@Html.DisplayFor(modelItem => item.Nombre) @Html.DisplayFor(modelItem => item.Apellido)</td>
                             <td>@Html.DisplayFor(modelItem => item.Correo)</td>
                             <td>@Html.DisplayFor(modelItem => item.Ciudad)</td>

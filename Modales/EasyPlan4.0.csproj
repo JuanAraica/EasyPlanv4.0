@@ -134,6 +134,7 @@
     <Compile Include="Controllers\JornadaController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\SalarioController.cs" />
+    <Compile Include="Controllers\Seguridad.cs" />
     <Compile Include="Controllers\TrabajadorController.cs" />
     <Compile Include="Filters\VerificaSession.cs" />
     <Compile Include="Global.asax.cs">

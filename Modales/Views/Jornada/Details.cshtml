@@ -27,27 +27,24 @@
             <dd>
                 @Html.DisplayFor(model => model.TipoJornada)
             </dd>
-            @if (@Html.DisplayFor(model => model.HoraInicio)!=null)
+            @if (@Html.DisplayFor(model => model.HoraInicio).ToString()!="")
             {
             <dt>
-                @Html.DisplayNameFor(model => model.HoraInicio)
+                Start Time
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.HoraInicio)
             </dd>
-            }
-
             <dt>
-                @Html.DisplayNameFor(model => model.HoraFin)
+                End Time
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.HoraFin)
             </dd>
-
             <dt>
-                @Html.DisplayNameFor(model => model.PrecioHoraRegular)
+                Regular Time Price
             </dt>
 
             <dd>
@@ -55,7 +52,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.PrecioHoraExtra)
+                Extra Time Price
             </dt>
 
             <dd>
@@ -63,7 +60,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.CantidadHorasRegulares)
+                Regular Hours
             </dt>
 
             <dd>
@@ -71,7 +68,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.CantidadHorasExtras)
+                Extra Hours
             </dt>
 
             <dd>
@@ -79,7 +76,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.ValorTotalHoraExtra)
+                Total Extra Time Price
             </dt>
 
             <dd>
@@ -87,15 +84,20 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.ValorTotalHorasRegulares)
+                Total Regular Time Price
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.ValorTotalHorasRegulares)
             </dd>
+            }
 
+            @if (@Html.DisplayFor(model => model.UnidadMedida).ToString() != "")
+            {
+
+            }
             <dt>
-                @Html.DisplayNameFor(model => model.UnidadMedida)
+                Unity
             </dt>
 
             <dd>

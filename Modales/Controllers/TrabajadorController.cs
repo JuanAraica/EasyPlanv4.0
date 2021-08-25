@@ -21,6 +21,16 @@ namespace Modales.Controllers
             {
                 return RedirectToAction("Index","Home");
             }
+            foreach (var trabajador in db.Tbl_Trabajador.ToList())
+            {
+                trabajador.CedulaTra = Seguridad.DesEncriptar(trabajador.CedulaTra);
+                trabajador.Correo = Seguridad.DesEncriptar(trabajador.Correo);
+                trabajador.Nombre = Seguridad.DesEncriptar(trabajador.Nombre);
+                trabajador.Apellido = Seguridad.DesEncriptar(trabajador.Apellido);
+                trabajador.Telefono = Seguridad.DesEncriptar(trabajador.Telefono);
+                trabajador.Puesto = Seguridad.DesEncriptar(trabajador.Puesto);
+                trabajador.Direccion = Seguridad.DesEncriptar(trabajador.Direccion);
+            }
             return View(db.Tbl_Trabajador.ToList());
         }
         public ActionResult ListarTrabajadoes()
@@ -36,6 +46,13 @@ namespace Modales.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Tbl_Trabajador trabajador = db.Tbl_Trabajador.Find(id);
+            trabajador.CedulaTra = Seguridad.DesEncriptar(trabajador.CedulaTra);
+            trabajador.Correo = Seguridad.DesEncriptar(trabajador.Correo);
+            trabajador.Nombre = Seguridad.DesEncriptar(trabajador.Nombre);
+            trabajador.Apellido = Seguridad.DesEncriptar(trabajador.Apellido);
+            trabajador.Telefono = Seguridad.DesEncriptar(trabajador.Telefono);
+            trabajador.Puesto = Seguridad.DesEncriptar(trabajador.Puesto);
+            trabajador.Direccion = Seguridad.DesEncriptar(trabajador.Direccion);
             if (trabajador == null)
             {
                 return HttpNotFound();
@@ -55,6 +72,13 @@ namespace Modales.Controllers
         {
             if (ModelState.IsValid)
             {
+                trabajador.CedulaTra = Seguridad.Encriptar(trabajador.CedulaTra);
+                trabajador.Correo = Seguridad.Encriptar(trabajador.Correo);
+                trabajador.Nombre = Seguridad.Encriptar(trabajador.Nombre);
+                trabajador.Apellido = Seguridad.Encriptar(trabajador.Apellido);
+                trabajador.Telefono = Seguridad.Encriptar(trabajador.Telefono);
+                trabajador.Puesto = Seguridad.Encriptar(trabajador.Puesto);
+                trabajador.Direccion = Seguridad.Encriptar(trabajador.Direccion);
                 db.Tbl_Trabajador.Add(trabajador);
                 db.SaveChanges();
                 return Json(new { success = true });
